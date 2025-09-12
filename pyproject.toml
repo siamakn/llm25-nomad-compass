@@ -111,8 +111,7 @@ package-dir = { "" = "src" }
 where = ["src"]
 
 [project.entry-points.'nomad.plugin']
-
-
+myapi = "nomad_compass.apis:myapi"
 
 
 
