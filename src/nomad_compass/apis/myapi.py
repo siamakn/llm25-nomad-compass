@@ -1,5 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, APIRouter
 from nomad.config import config
+from nomad_compass.apis.chatbot_api import router as chatbot_router
+
+router = APIRouter()
+router.include_router(chatbot_router, prefix="/chatbot", tags=["chatbot"])
 
 myapi_entry_point = config.get_plugin_entry_point('nomad_compass.apis:myapi')
 
