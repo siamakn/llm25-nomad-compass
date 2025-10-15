@@ -6,8 +6,7 @@ from .sn_config import Settings
 from .services.sn_chatbot_service import ChatbotService
 from .services.sn_rdf_loader import RDFLoader
 from .services.sn_vector_store import SimpleVectorStore
-from .apis import sn_status_api
-from archive import sn_chatbot_api
+from .apis import sn_status_api, sn_chatbot_api
 
 
 @asynccontextmanager
