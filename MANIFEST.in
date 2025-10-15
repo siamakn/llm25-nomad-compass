@@ -1,2 +1,8 @@
 recursive-include * nomad_plugin.yaml
 graft src/nomad_compass/example_uploads
+
+# Include RDF corpus and any data JSONs in the sdist
+recursive-include src/nomad_compass/data/rdf_files *.jsonld
+include src/nomad_compass/data/*.json
+
+

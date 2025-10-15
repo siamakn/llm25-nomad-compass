@@ -121,9 +121,13 @@ line-ending = "auto"
 
 [tool.setuptools]
 package-dir = { "" = "src" }
+include-package-data = true
 
 [tool.setuptools.packages.find]
 where = ["src"]
+
+[tool.setuptools.package-data]
+nomad_compass = ["data/rdf_files/*.jsonld", "data/*.json"]
 
 [project.entry-points.'nomad.plugin']
 myapi = "nomad_compass.apis:myapi"
