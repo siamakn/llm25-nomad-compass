@@ -1,12 +1,13 @@
-from __future__ import annotations
 from fastapi import APIRouter, Depends, Request, HTTPException
 from ..models.sn_chatbot_models import AskRequest, AskResponse
+from .sn_bootstrap import ensure_services
 
 router = APIRouter(prefix="/chatbot", tags=["Chatbot"])
 
-def _get_chatbot(request: Request):
+async def _get_chatbot(request: Request):
     try:
-        return request.app.state.services["chatbot"]
+        services = await ensure_services(request.app)
+        return services["chatbot"]
     except Exception as exc:
         raise HTTPException(status_code=503, detail="Service not initialized") from exc
 
